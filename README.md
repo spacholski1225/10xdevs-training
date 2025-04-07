@@ -1,2 +1,2 @@
-# 10xdevs-training
-https://www.10xdevs.pl/
+# 10xDevs Training
+more: https://www.10xdevs.pl/
