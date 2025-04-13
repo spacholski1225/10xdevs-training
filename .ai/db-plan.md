@@ -22,9 +22,11 @@ No shortcut for chat, ⌘K to generate
 - created_at: TIMESTAMPTZ NOT NULL DEFAULT now()
 - updated_at: TIMESTAMPTZ NOT NULL DEFAULT now()
 - generation_id: BIGINT REFERENCES generations(id) ON DELETE SET NULL
-- user_id: UUID NOT NULL REFERENCES users(id)
+- user_id: UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE
+- status: VARCHAR(20) NOT NULL CHECK (status IN ('active', 'archived', 'deleted')) DEFAULT 'active'
 
 *Trigger: Automatically update the `updated_at` column on record updates.*
+
 ### 1.3. generations
 
 - id: BIGSERIAL PRIMARY KEY
@@ -63,6 +65,9 @@ No shortcut for chat, ⌘K to generate
 - Indeks na kolumnie `generation_id` w tabeli flashcards.
 - Indeks na kolumnie `user_id` w tabeli generations.
 - Indeks na kolumnie `user_id` w tabeli generation_error_logs.
+- Indeks na kolumnie `source_text_hash` w tabeli generations.
+- Composite index na kolumnach (user_id, status) w tabeli flashcards.
+- Composite index na kolumnach (user_id, created_at) w tabeli generations.
 
 ## 4. Zasady RLS (Row-Level Security)
 
