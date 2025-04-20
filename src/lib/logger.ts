@@ -16,9 +16,7 @@ export class Logger {
       error: {
         name: error.name,
         message: error.message,
-        ...(error instanceof Error && error.stack
-          ? { stack: error.stack }
-          : {}),
+        ...(error instanceof Error && error.stack ? { stack: error.stack } : {}),
       },
       ...(sanitizedMetadata ? { metadata: sanitizedMetadata } : {}),
       timestamp: new Date().toISOString(),
@@ -42,26 +40,14 @@ export class Logger {
   /**
    * Removes sensitive data from metadata before logging
    */
-  private sanitizeMetadata(
-    metadata?: Record<string, unknown>,
-  ): Record<string, unknown> | undefined {
+  private sanitizeMetadata(metadata?: Record<string, unknown>): Record<string, unknown> | undefined {
     if (!metadata) return undefined;
 
-    const sensitiveKeys = [
-      "apiKey",
-      "token",
-      "password",
-      "secret",
-      "authorization",
-    ];
+    const sensitiveKeys = ["apiKey", "token", "password", "secret", "authorization"];
     const sanitized = { ...metadata };
 
     for (const key of Object.keys(sanitized)) {
-      if (
-        sensitiveKeys.some((sensitiveKey) =>
-          key.toLowerCase().includes(sensitiveKey.toLowerCase()),
-        )
-      ) {
+      if (sensitiveKeys.some((sensitiveKey) => key.toLowerCase().includes(sensitiveKey.toLowerCase()))) {
         sanitized[key] = "[REDACTED]";
       }
     }
