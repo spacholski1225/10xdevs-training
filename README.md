@@ -8,6 +8,8 @@ A modern, opinionated starter template for building fast, accessible, and AI-fri
 - [React](https://react.dev/) v19.0.0 - UI library for building interactive components
 - [TypeScript](https://www.typescriptlang.org/) v5 - Type-safe JavaScript
 - [Tailwind CSS](https://tailwindcss.com/) v4.0.17 - Utility-first CSS framework
+- [Vitest](https://vitest.dev/) - Unit and integration testing framework
+- [Playwright](https://playwright.dev/) - End-to-end testing framework
 
 ## Prerequisites
 
@@ -48,6 +50,10 @@ npm run build
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
 - `npm run lint:fix` - Fix ESLint issues
+- `npm run test` - Run unit and integration tests with Vitest
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:e2e` - Run end-to-end tests with Playwright
+- `npm run test:coverage` - Generate test coverage report
 
 ## Project Structure
 
@@ -58,6 +64,11 @@ npm run build
 │   ├── pages/      # Astro pages
 │   │   └── api/    # API endpoints
 │   ├── components/ # UI components (Astro & React)
+│   ├── lib/        # Shared utilities and services
+│   ├── tests/      # Test files
+│   │   ├── unit/   # Unit tests
+│   │   ├── e2e/    # End-to-end tests
+│   │   └── fixtures/# Test fixtures and mocks
 │   └── assets/     # Static assets
 ├── public/         # Public assets
 ```
@@ -72,6 +83,7 @@ This project is configured with AI development tools to enhance the development 
 - Styling with Tailwind
 - Accessibility best practices
 - Astro and React guidelines
+- Testing strategies and best practices
 
 ### Cursor IDE
 
@@ -85,9 +97,21 @@ AI instructions for GitHub Copilot are available in `.github/copilot-instruction
 
 The `.windsurfrules` file contains AI configuration for Windsurf.
 
+## Testing Strategy
+
+The project follows a comprehensive testing strategy:
+
+- Unit and integration tests with Vitest
+- End-to-end tests with Playwright
+- Continuous testing in CI/CD pipeline
+- Performance testing with Chrome DevTools
+- Automated test reporting
+
+For detailed testing documentation, see `.ai/test-plan.md`.
+
 ## Contributing
 
-Please follow the AI guidelines and coding practices defined in the AI configuration files when contributing to this project.
+Please follow the AI guidelines, coding practices, and testing requirements defined in the AI configuration files when contributing to this project.
 
 ## License
 
