@@ -1,5 +1,8 @@
 import crypto from "crypto";
-import type { FlashcardProposalDto, GenerationCreateResponseDto } from "../types";
+import type {
+  FlashcardProposalDto,
+  GenerationCreateResponseDto,
+} from "../types";
 import type { SupabaseClient } from "../db/supabase.client";
 import { DEFAULT_USER_ID } from "../db/supabase.client";
 import { OpenRouterService } from "./openrouter.service";
@@ -94,7 +97,9 @@ Focus on important facts, definitions, concepts, and relationships.`);
   private async callAIService(text: string): Promise<FlashcardProposalDto[]> {
     try {
       // Set the user message with the source text
-      this.openRouter.setUserMessage(`Generate flashcards from the following text:\n\n${text}`);
+      this.openRouter.setUserMessage(
+        `Generate flashcards from the following text:\n\n${text}`,
+      );
 
       // Get response from OpenRouter
       const response = await this.openRouter.sendChatMessage();
