@@ -105,4 +105,4 @@ Ensure that all information in the summary is based on your exploration of the p
 
 Your final output should consist only of the markdown-formatted onboarding summary that you will save in .ai/onboarding.md and should not duplicate or rehash any of the work you did in the exploration section of the thinking block. Finish the work after you created document with a required structure and content.
 
-Begin your response with your exploration.
+Begin your response with your exploration
