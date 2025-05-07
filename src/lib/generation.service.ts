@@ -58,7 +58,9 @@ Focus on important facts, definitions, concepts, and relationships.`);
     });
   }
 
-  async generateFlashcards(sourceText: string): Promise<GenerationCreateResponseDto> {
+  async generateFlashcards(
+    sourceText: string,
+  ): Promise<GenerationCreateResponseDto> {
     try {
       // 1. Calculate metadata
       const startTime = Date.now();
