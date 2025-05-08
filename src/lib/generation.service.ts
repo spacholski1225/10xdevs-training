@@ -156,7 +156,7 @@ Focus on important facts, definitions, concepts, and relationships.`);
     data: {
       sourceTextHash: string;
       sourceTextLength: number;
-    }
+    },
   ): Promise<void> {
     await this.supabase.from("generation_error_logs").insert({
       user_id: DEFAULT_USER_ID,
