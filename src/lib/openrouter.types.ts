@@ -21,7 +21,7 @@ export interface RequestPayload {
   model: string;
   response_format?: {
     type: "json_schema";
-    json_schema: any;
+    json_schema: unknown;
   };
   temperature?: number;
   top_p?: number;
