@@ -38,15 +38,11 @@ export function BulkSaveButton({
       flashcards: flashcardsToSave,
     };
 
-    const response = await fetch("/api/flashcards", {
+    await fetch("/api/flashcards", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(command),
     });
-
-    if (!response.ok) {
-      throw new Error("Failed to save flashcards. Please try again.");
-    }
 
     toast.success("Success!", {
       description: `Successfully saved ${flashcardsToSave.length} flashcards.`,
