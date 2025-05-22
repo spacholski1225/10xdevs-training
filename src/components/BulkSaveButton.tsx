@@ -25,7 +25,7 @@ export function BulkSaveButton({
     setIsSaving(true);
     setError(null);
 
-    const flashcardsToSave = flashcards
+    var flashcardsToSave = flashcards
       .filter((card) => !onlyAccepted || card.accepted)
       .map((card) => ({
         front: card.front,
@@ -34,7 +34,7 @@ export function BulkSaveButton({
         generation_id: generationId,
       }));
 
-    const command: FlashcardsCreateCommand = {
+    let command: FlashcardsCreateCommand = {
       flashcards: flashcardsToSave,
     };
 
